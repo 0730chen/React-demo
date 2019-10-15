@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -194,7 +194,6 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-=======
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -263,4 +262,3 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
->>>>>>> bad278afdf632c337a3b36eab0e234fcccd38945
