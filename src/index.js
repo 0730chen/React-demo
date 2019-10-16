@@ -259,7 +259,8 @@ class HelloWord extends React.Component {
     super(props);
     this.state = {
       value: "null",
-      message:'我是子组件'
+      message:'我是子组件',
+
     };
   }
   //点击事件
@@ -276,9 +277,15 @@ class HelloWord extends React.Component {
     this.props.onSubmit(this.state.message)
 
   }
+  //父组件需要有个值接受子组件传递过来的值
   getvalue(value){
-    console.log('我是Hello word组件')
-    console.log(value)
+    console.log('我是Hello word组件',this)
+    this.setState({
+      value:value
+    },()=>{
+      console.log(this.state.message)
+    })
+    console.log(this)
 
   }
   render() {
@@ -298,8 +305,9 @@ class HelloWord extends React.Component {
           value="[1,2,3,4,5,6]"
           linkText="http-serever"
           refs="隐藏属性"
-          onClick = {()=>{this.getvalue()}}
+         getvalue = {()=>{this.getvalue()}}
         />
+        <div>{this.state.message}</div>
       </div>
     );
   }

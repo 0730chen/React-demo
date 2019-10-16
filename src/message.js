@@ -22,9 +22,10 @@ class Message extends React.Component{
 		console.log('发送数据')
 		// console.log(this)
 		// console.log(this.state.message)
-		console.log(state)
+		console.log(`发送的数据${state}`)
 		// this.props.getValue(this.state.message)
-		this.props.onClick(state)
+		console.log(this.props)
+		this.props.getvalue(state)
 	}
 	render () {
 		console.log('信息模块',this)
