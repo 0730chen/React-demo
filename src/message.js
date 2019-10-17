@@ -84,6 +84,9 @@ class InputMessage extends React.Component {
       Content: ""
     };
   }
+  componentDidMount(){
+	  this.input.focus()
+  }
   //监听输入框的onchange事件改变state的值
   //传入参数，接受数据
   handleUsernameChange(event) {
@@ -95,6 +98,9 @@ class InputMessage extends React.Component {
     this.setState({
       Content: event.target.value
     });
+  }
+  input(e){
+	  console.log(e)
   }
   SendInputMessage() {
     console.log(this.props, this.state.username, this.state.Content);
@@ -113,6 +119,7 @@ class InputMessage extends React.Component {
             <span>用户名 :</span>
             <input
               type="text"
+			  ref= {(input)=>{this.input = input}}
               value={this.state.username}
               onChange={e => {
                 this.handleUsernameChange(e);
@@ -122,6 +129,7 @@ class InputMessage extends React.Component {
           <div className="Content">
             <span>内容 ：</span>
             <textarea
+			ref={(textarea)=>{this.textarea = textarea}}
               value={this.state.password}
               onChange={event => {
                 this.handleContentChange(event);
@@ -205,5 +213,13 @@ class Content extends React.Component {
     return <div key={this.props.content.i}>{this.props.content.username}:{this.props.content.Content}</div>;
   }
 }
+
+/*
+1.持久化用户名 使用浏览器的localStroge储存数据和评论
+2.不依赖dom的操作都可以放在挂载之前就行操作 ComponentWillmount
+3.命令规则，组件私有方法_开头，事件监听相关的使用handle开头，将监听传给组件时，使用on开头
+4.实现评论持久化，页面刷新评论依然存在，和用户名持久化类似
+5.删除评论功能，1.按钮放在评论上才会显示删除按钮2.向父组件传递删除消息，夫组件再向上传递，最后删除评论
+*/ 
 
 export default Message;
