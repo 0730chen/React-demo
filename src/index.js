@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import Message from "./message";
+import Click from './click'
 
 //生成小块
 class Square extends React.Component {
@@ -260,6 +261,7 @@ class HelloWord extends React.Component {
     this.state = {
       value: "null",
       message:'我是子组件',
+      isShowClock:true,
 
     };
   }
@@ -288,6 +290,11 @@ class HelloWord extends React.Component {
     console.log(this)
 
   }
+  handleShowOrHide(){
+		this.setState({
+			isShowClock:!this.state.isShowClock
+		})
+	}
   render() {
     //父组件通过props传递值， 子组件中使用this.props获取值
     //使用map接受传入的数据，返回li标签数据
@@ -308,6 +315,8 @@ class HelloWord extends React.Component {
          getvalue = {()=>{this.getvalue()}}
         />
         <div>{this.state.message}</div>
+        {this.state.isShowClock?<Click/>:null}
+        <button onClick ={()=>{this.handleShowOrHide()}}>显示隐藏时钟</button>
       </div>
     );
   }

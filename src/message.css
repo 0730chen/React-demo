@@ -1,5 +1,54 @@
 .message{
-	height: 100px;
-	width: 100px;
+	height: 500px;
+	width: 500px;
 	border:1px solid black
 }
+.input{
+	width: 500px;
+	height: 300px;
+	border: 1px solid black;
+	display: flex;
+	flex-direction: column;
+	justify-content: start;/*垂直方向*/
+	align-items: center;/*水平方向*/
+}
+.Name{
+	display: flex;
+	width: 250px;
+	flex-direction: row;
+	max-width: 100%;
+	justify-content: start;
+}
+.Name>span{
+	width: 100px;
+	border: 1px solid black;
+}
+.Content{
+	display: flex;
+	width: 250px;
+	flex-direction: row;
+	max-width: 100%;
+	margin-top: 20px;
+	justify-content: start;
+}
+.Content>span{
+	width: 100px;
+	height: 21px;
+	border: 1px solid black;
+}
+.Content > textarea{
+	height: 200px;
+}
+
+.showMessage{
+	width: 500px;
+	height: 300px;
+	border: 1px solid black;
+}
+.showName{
+	border: 1px solid black;
+}
+.showContent{
+	border: 1px solid black;
+}
+
