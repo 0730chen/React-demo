@@ -1,8 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import Message from "./message";
 import Click from './click'
+import Message from './message'
+// let Message = require('./message')
+
 
 //生成小块
 class Square extends React.Component {

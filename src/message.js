@@ -221,5 +221,11 @@ class Content extends React.Component {
 4.实现评论持久化，页面刷新评论依然存在，和用户名持久化类似
 5.删除评论功能，1.按钮放在评论上才会显示删除按钮2.向父组件传递删除消息，夫组件再向上传递，最后删除评论
 */ 
-
-export default Message;
+// console.log(module.exports === exports)
+// console.log(module.exports)
+// module.exports = {
+//   message:Message
+// }
+// console.log(module.exports)
+export default Message
+// export default Message
