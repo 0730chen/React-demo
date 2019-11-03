@@ -20,13 +20,13 @@ class Click extends React.Component{
 		}, 1000);
 	}
 	//更新阶段
-	shouldComponentUpdate(nextProps, nextState) {
+	// shouldComponentUpdate(nextProps, nextState) {
 		
-	}
+	// }
 	//更新阶段
-	static getDerivedStateFromProps(nextProps, prevState) {
+	// static getDerivedStateFromProps(nextProps, prevState) {
 		
-	}
+	// }
 	
 
 	

@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import Click from './click'
-import Message from './message'
+import Click from "./click";
+import Message from "./message";
+import RouterBar from './router'
 // let Message = require('./message')
-
 
 //生成小块
 class Square extends React.Component {
@@ -148,13 +148,21 @@ class Game extends React.Component {
       xIsNext: step % 2 === 0
     });
   }
-  handleSubmitAPP =(e)=>{
+  handleSubmitAPP = e => {
     // console.log(e)
-  }
+  };
   renderHello(arr) {
     this.setState = {};
     //父组件将自定义函数当做回调函数传给子组件，当子组件触发后，调用这个函数
-    return <HelloWord value={this.state.HelloWord} id={this.state.id + 1} onSubmit = {()=>{this.handleSubmitAPP()}}/>;
+    return (
+      <HelloWord
+        value={this.state.HelloWord}
+        id={this.state.id + 1}
+        onSubmit={() => {
+          this.handleSubmitAPP();
+        }}
+      />
+    );
   }
   handleClick(i) {
     console.log(`我是第${i}个元素块`);
@@ -262,47 +270,52 @@ class HelloWord extends React.Component {
     super(props);
     this.state = {
       value: "null",
-      message:'我是子组件',
-      isShowClock:true,
-
+      message: "我是子组件",
+      isShowClock: true
     };
   }
   //点击事件
   handleClick(value) {
     console.log(value);
     this.setState({
-      value: value,
+      value: value
     });
   }
   //父组件给子组件传值
-  handleSubmit(){
-    console.log('我是子组件的方法')
-    console.log(this.props)
-    this.props.onSubmit(this.state.message)
-
+  handleSubmit() {
+    console.log("我是子组件的方法");
+    console.log(this.props);
+    this.props.onSubmit(this.state.message);
   }
   //父组件需要有个值接受子组件传递过来的值
-  getvalue(value){
-    console.log('我是Hello word组件',this)
-    this.setState({
-      value:value
-    },()=>{
-      console.log(this.state.message)
-    })
-    console.log(this)
-
+  getvalue(value) {
+    console.log("我是Hello word组件", this);
+    this.setState(
+      {
+        value: value
+      },
+      () => {
+        console.log(this.state.message);
+      }
+    );
+    console.log(this);
   }
-  handleShowOrHide(){
-		this.setState({
-			isShowClock:!this.state.isShowClock
-		})
-	}
+  handleShowOrHide() {
+    this.setState({
+      isShowClock: !this.state.isShowClock
+    });
+  }
   render() {
     //父组件通过props传递值， 子组件中使用this.props获取值
     //使用map接受传入的数据，返回li标签数据
     return (
       <div className="hello">
-        <button onClick={() => this.handleClick(this.props.id)} onClick = {()=>{this.handleSubmit(this.state.message)}}>
+        <button
+          onClick={() => this.handleClick(this.props.id)}
+          onClick={() => {
+            this.handleSubmit(this.state.message);
+          }}
+        >
           {this.props.id}
         </button>
         <ul>
@@ -314,11 +327,20 @@ class HelloWord extends React.Component {
           value="[1,2,3,4,5,6]"
           linkText="http-serever"
           refs="隐藏属性"
-         getvalue = {()=>{this.getvalue()}}
+          getvalue={() => {
+            this.getvalue();
+          }}
         />
         <div>{this.state.message}</div>
-        {this.state.isShowClock?<Click/>:null}
-        <button onClick ={()=>{this.handleShowOrHide()}}>显示隐藏时钟</button>
+        {this.state.isShowClock ? <Click /> : null}
+        <button
+          onClick={() => {
+            this.handleShowOrHide();
+          }}
+        >
+          显示隐藏时钟
+        </button>
+        {RouterBar()}
       </div>
     );
   }
