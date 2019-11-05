@@ -52,8 +52,6 @@ class Content extends React.Component{
 	render() {
 		return (
 			<div>
-			<div>我是一个标签</div>
-			<div>想要实现一个路由</div>
 			{/* <div>{this.state.result}</div> */}
 			{this.state.result.map((e,i)=>{
 				return (
@@ -73,9 +71,5 @@ class Content extends React.Component{
 		)
 	}
 }
-ReactDOM.render(
-  <Content />, //JSX的标签
-  document.getElementById("routeBar")
-)
 
 export default Content

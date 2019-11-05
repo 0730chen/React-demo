@@ -3,7 +3,8 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import Click from "./click";
 import Message from "./message";
-import RouterBar from './router'
+import TitleBar from './router'
+console.log(TitleBar)
 // let Message = require('./message')
 
 //生成小块
@@ -310,6 +311,7 @@ class HelloWord extends React.Component {
     //使用map接受传入的数据，返回li标签数据
     return (
       <div className="hello">
+      <TitleBar/>
         <button
           onClick={() => this.handleClick(this.props.id)}
           onClick={() => {
@@ -318,11 +320,11 @@ class HelloWord extends React.Component {
         >
           {this.props.id}
         </button>
-        <ul>
+        {/* <ul>
           {this.props.value.map(t => (
             <li key={t}>{t}</li>
           ))}
-        </ul>
+        </ul> */}
         <Message
           value="[1,2,3,4,5,6]"
           linkText="http-serever"
@@ -340,7 +342,7 @@ class HelloWord extends React.Component {
         >
           显示隐藏时钟
         </button>
-        {RouterBar()}
+        {/* {RouterBar()} */}
       </div>
     );
   }
@@ -349,6 +351,7 @@ class HelloWord extends React.Component {
 //组件需要大写开头,小写是标签
 //渲染语法,
 ReactDOM.render(
-  <Game />, //JSX的标签
+  //这个组件是所有的父组件
+  <TitleBar/>, //JSX的标签
   document.getElementById("root")
 );

@@ -1,0 +1,19 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+nav{
+	border:1px solid black;
+}
+li{
+	list-style: none;
+}
+.titele{
+	display: flex;
+	flex-direction: row;
+}
+a{
+	text-decoration: none;
+	color:black;
+}
