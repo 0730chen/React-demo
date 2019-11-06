@@ -3,17 +3,17 @@
 	margin: 0;
 	box-sizing: border-box;
 }
-nav{
+.nav{
 	border:1px solid black;
 }
-li{
+.li{
 	list-style: none;
 }
 .titele{
 	display: flex;
 	flex-direction: row;
 }
-a{
+.a{
 	text-decoration: none;
 	color:black;
 }

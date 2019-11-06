@@ -1,6 +1,6 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import './bar.css'
+// import ReactDOM from 'react-dom'
+
 
 class QuestionBar extends React.Component{
 	constructor(props) {
@@ -14,7 +14,7 @@ class QuestionBar extends React.Component{
 		return (
 			<div>
 			我是一个问题导航栏组件
-			<ul className="titleContainer">
+			<ul className="haha">
 			<li>关注</li>
 			<li>推荐</li>
 			<li>热榜</li>

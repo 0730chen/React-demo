@@ -4,9 +4,7 @@ import "./index.css";
 import Click from "./click";
 import Message from "./message";
 import TitleBar from './router'
-console.log(TitleBar)
 // let Message = require('./message')
-
 //生成小块
 class Square extends React.Component {
   //类的属性
@@ -347,11 +345,24 @@ class HelloWord extends React.Component {
     );
   }
 }
+class App extends React.Component{
+  constructor(props){
+    super(props)
+  }
+  render(){
+    return (
+      <div>
+      <div>我是主组件，全部内容的父组件</div>
+        <TitleBar/>
+      </div>
+    )
+  }
+}
 //react.js中渲染列表使用map方法将数组数据返回成JSX形式
 //组件需要大写开头,小写是标签
 //渲染语法,
 ReactDOM.render(
   //这个组件是所有的父组件
-  <TitleBar/>, //JSX的标签
+  <App/>, //JSX的标签
   document.getElementById("root")
 );

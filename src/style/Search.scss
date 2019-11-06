@@ -1,0 +1,28 @@
+
+
+//声明变量使用$开头
+//1.选择器嵌套
+//变量
+
+//minin，声明函数 
+//minin 是一个函数。可以接受一个值
+@mixin log($red) {
+	border: 1px solid $red;
+}
+.Search{
+	p{
+
+	}
+}
+
+$width:10px;
+$height: $width+10px;
+
+ .Search{
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	background: chocolate;
+	@include log(red)
+}
+
