@@ -1,0 +1,15 @@
+
+@mixin add {
+	border:1px solid black;
+}
+.Question{
+	overflow-y: auto;
+	height: 500px;
+	padding-right: 50px;
+	@include add();
+	img{
+		max-width: 100%;
+		max-height: 100%;
+	}
+
+}
