@@ -1,0 +1,22 @@
+
+@mixin log {
+	border:1px solid black
+}
+.city{
+	width: 100%;
+}
+.Weather-content{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	div{
+	max-height: 100%;
+	}
+	li{
+		height: 80px;
+		width: 80%;
+		flex: 1;
+		@include log()
+	}
+}
