@@ -27,6 +27,11 @@ class Search extends React.Component {
   render() {
     return (
       <div className="Search">
+        <div className="logo">
+          <svg className="icon" aria-hidden="true">
+            <use xlinkHref="#icon-zhihu"></use>
+          </svg>
+        </div>
         <input
           ref={input => {
             this.input = input;

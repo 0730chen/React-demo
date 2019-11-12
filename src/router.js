@@ -20,7 +20,6 @@ class TitleBar extends React.Component{
 
 //一个组件就相当于一个页面
   render(){
-    console.log('路由组件')
     return(
       <Router>
       <Search/>

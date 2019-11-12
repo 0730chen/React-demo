@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "../style/Weather.scss";
-import imgurl from '../img/sunny.png'
+import imgurl from "../img/sunny.png";
 //图片需要引入
 class Weather extends React.Component {
   constructor(props) {
@@ -9,10 +9,13 @@ class Weather extends React.Component {
     this.state = {
       value: "",
       weather: [],
-      weatherIcon: {
-        sunny: "../img/sunny.png",
-        cloudy: "../img/cloudy.png"
-      }
+      weatherIcon: [
+        {weather:'晴'},
+        {weather:'多云'},
+        {weather:"雨"},
+        {weather:"雪"},
+      ],
+      flag:'',
     };
   }
   handleInput(e) {
@@ -27,10 +30,14 @@ class Weather extends React.Component {
         `https://restapi.amap.com/v3/weather/weatherInfo?city=${id}&key=05394649327242f4976259b38eefdcef`
       )
       .then(res => {
-        console.log(res);
+        if (res.data.count === "0") {
+          console.log("名字出错");
+          alert("请输入正确的地名");
+        }
         let data = res.data.lives;
         this.setState({
-          weather: data
+          weather: data,
+          flag:data.weather
         });
       });
   }
@@ -54,15 +61,15 @@ class Weather extends React.Component {
   render() {
     return (
       <div>
-        <input
-          className="city"
-          type="text"
-          placeholder="输入地区的全称例如：萧山区，杭州市，武功县"
-          onChange={e => {
-            this.handleInput(e);
-          }}
-        />
-        <div>
+        <div className="sendCity">
+          <input
+            className="city"
+            type="text"
+            placeholder="输入地区的全称例如：萧山区，杭州市，武功县"
+            onChange={e => {
+              this.handleInput(e);
+            }}
+          />
           <button
             type="button"
             onClick={() => {
@@ -72,51 +79,34 @@ class Weather extends React.Component {
           >
             查询
           </button>
-          <div className="Weather-content">
-            {this.state.weather.map((e, i) => {
-              if(e.weather==="晴"){
-                e.img = this.state.weatherIcon.sunny
-              }
-              return (
-                <div key={i}>
-                  {/* {if(e.weather==="晴天"){
-                e.img = this.state.weather.sunny
-              }} */}
-                  <li>省份:{e.province}</li>
-                  <li>区域:{e.city}</li>
-                  <li>humidity:{e.humidity}</li>
-                  <li>查询时间:{e.reporttime}</li>
-                  <li>温度:{e.temperature}℃</li>
-                  <li>
-                    {/* <img src={e.img}></img>:{e.weather} */}
-                    <img src={imgurl}/>
-                  </li>
-                  <li>风向:{e.winddirection}</li>
-                  <li>风力:{e.windpower}</li>
-                </div>
-              );
-            })}
-            {/* <li>省份:{this.state.weather[0].province}</li>
-            <li>区域:{this.state.weather[0].city}</li>
-            <li>humidity:{this.state.weather[0].humidity}</li>
-            <li>查询时间:{this.state.weather[0].reporttime}</li>
-            <li>温度:{this.state.weather[0].temperature}</li>
-            <li>天气:{this.state.weather[0].weather}</li>
-            <li>风向:{this.state.weather[0].winddirection}</li>
-            <li>风力:{this.state.weather[0].windpower}</li> */}
-            {/* {this.state.weather[0].map(e => {
-              return <div>
-              <li>省份:{e.province}</li>
-              <li>区域:{e.city}</li>
-              <li>humidity:{e.humidity}</li>
-              <li>查询时间:{e.reporttime}</li>
-              <li>温度:{e.temperature}</li>
-              <li>天气:{e.weather}</li>
-              <li>风向:{e.winddirection}</li>
-              <li>风力:{e.windpower}</li>
-              </div>;
-            })} */}
-          </div>
+        </div>
+        <div className="Weather-content">
+          {this.state.weather.map((e, i) => {
+           this.state.weatherIcon.forEach(weatherType => {
+                    {/* console.log(e)
+                    console.log(weatherType) */}
+                    if(e.weather ===weatherType.weather){
+                      console.log(e.weather)
+                    }
+           });
+            return (
+              <div key={i}>
+                <li>省份:{e.province}</li>
+                <li>区域:{e.city}</li>
+                <li>humidity:{e.humidity}</li>
+                <li>时间:{e.reporttime}</li>
+                <li>温度:{e.temperature}℃</li>
+                <li>
+                  天气:{this.state.flag}
+                  <svg className="icon" aria-hidden="true">
+                    <use xlinkHref="#icon-tianqi-"></use>
+                  </svg>
+                </li>
+                <li>风向:{e.winddirection}</li>
+                <li>风力:{e.windpower}</li>
+              </div>
+            );
+          })}
         </div>
       </div>
     );

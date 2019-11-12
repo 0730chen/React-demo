@@ -345,6 +345,7 @@ class HelloWord extends React.Component {
     );
   }
 }
+
 class App extends React.Component{
   constructor(props){
     super(props)
@@ -352,7 +353,6 @@ class App extends React.Component{
   render(){
     return (
       <div>
-      <div>我是主组件，全部内容的父组件</div>
         <TitleBar/>
       </div>
     )
