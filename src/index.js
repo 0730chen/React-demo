@@ -3,7 +3,15 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import Click from "./click";
 import Message from "./message";
-import TitleBar from './router'
+import TitleBar from "./router";
+import LoginForm from "./component/login";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect
+} from "react-router-dom";
 // let Message = require('./message')
 //生成小块
 class Square extends React.Component {
@@ -309,7 +317,7 @@ class HelloWord extends React.Component {
     //使用map接受传入的数据，返回li标签数据
     return (
       <div className="hello">
-      <TitleBar/>
+        <TitleBar />
         <button
           onClick={() => this.handleClick(this.props.id)}
           onClick={() => {
@@ -346,16 +354,25 @@ class HelloWord extends React.Component {
   }
 }
 
-class App extends React.Component{
-  constructor(props){
-    super(props)
+class App extends React.Component {
+  constructor(props) {
+    super(props);
   }
-  render(){
+  render() {
     return (
-      <div>
-        <TitleBar/>
-      </div>
-    )
+      <Router>
+      <nav>
+      <ul>
+      <li><Link to="/zhihu"></Link></li>
+      <li><Link to="/"></Link></li>
+      </ul>
+      </nav>
+      <Switch>
+      <Route path="/" exact><LoginForm/></Route>
+      <Route path="/zhihu"exact><TitleBar/></Route>
+      </Switch>
+      </Router>
+    );
   }
 }
 //react.js中渲染列表使用map方法将数组数据返回成JSX形式
@@ -363,6 +380,6 @@ class App extends React.Component{
 //渲染语法,
 ReactDOM.render(
   //这个组件是所有的父组件
-  <App/>, //JSX的标签
+  <App />, //JSX的标签
   document.getElementById("root")
 );

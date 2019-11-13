@@ -3,7 +3,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from "react-router-dom";
 import QuestionTitle from './bar'
 import About from './about'
@@ -11,6 +12,7 @@ import Question from'./component/Question'
 import Search from './component/Search'
 import Weather from './component/Weather'
 import style from './style/Route.module.css'
+import LoginFrom from './component/login'
 
 
 class TitleBar extends React.Component{
@@ -26,15 +28,15 @@ class TitleBar extends React.Component{
       <nav className={style.nav}>
       <ul className={style.title}>
       <li className={style.link}><Link to="/zhihu">大V列表</Link></li>
-      <li className={style.link}><Link to="/">问题回答</Link></li>
+      <li className={style.link}><Link to="/question">知乎组件</Link></li>
       <li className={style.link}><Link to="/weather">天气查询</Link></li>
       </ul>
       </nav>
       <Switch>
-      <Route path="/" exact><About/></Route>
+      <Route path="/" exact><LoginFrom/></Route>
       <Route path="/zhihu" exact><Question/></Route>
       <Route path="/weather" exact><Weather/></Route>
-      <Route path ="/question" exact><Question/> </Route>
+      <Route path ="/question" exact><About/> </Route>
       </Switch>
       </Router>
     )

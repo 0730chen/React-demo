@@ -32,7 +32,7 @@ class Question extends React.Component {
   render() {
     return (
       <div>
-        <div>这里是大V最近的动态</div>
+        <div>显示最新的热点</div>
         <div className="question-main">
           <div className="bigVlist">
             {this.state.bigV.map((item, i) => {

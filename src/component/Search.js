@@ -1,5 +1,4 @@
 import React from "react";
-
 import ReactDOM from "react-dom";
 import { Button } from "antd";
 import { Icon } from "antd";
@@ -44,7 +43,7 @@ class Search extends React.Component {
           }}
         />
         <Button
-          type="primary"
+          type="submit"
           icon="search"
           onClick={e => {
             console.log(this.state.value);
