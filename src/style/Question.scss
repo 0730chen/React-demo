@@ -1,36 +1,64 @@
-$color:black;
+$color: black;
 @mixin border($color) {
-	border:1px solid $color;
+  border: 1px solid $color;
 }
-.question-main{
-ul{
-	background:red($color: #000000);
-	@include border(red);
-	> div{
-		background: yellow;
-		@include border(red);
-		>li{
-			color: red($color: #000000);
-			@include border(red);
-		}
-	}
-}
+.question-main {
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: red($color: #000000);
+
+    > div {
+      > li {
+        color: red($color: #000000);
+        @include border(rgb(235, 235, 235));
+      }
+    }
+    .Hot-item {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      padding: 8px 8px 8px 0;
+	  border-bottom: 1px solid #ebebeb;
+	  position: relative;
+      .Hot-item :not(:first-child) {
+        border: 1px solid #ebebeb;
+	  }
+	  .star{
+		  position: absolute;
+		  left: 20px;
+		  top: 18%;
+	  }
+      .Index {
+        text-align: center;
+        margin: 10px;
+        flex: 1;
+      }
+      .Title-Container {
+        display: flex;
+        flex: 4;
+        flex-direction: column;
+      }
+    }
+  }
 }
 //white-space: nowrap; 这个属性，针对汉子会换行，添加不换行周可以实现左右滑动
-.bigVlist{
-	display: flex;
-	flex-direction: row;
-	overflow: auto;
-	flex-wrap: nowrap;
-	>.user{
-		text-align: center;
-		@include border(red);
-		white-space: nowrap;
-		padding-right:10px;
-		padding-left: 10px;
-	}
+.bigVlist {
+  display: flex;
+  flex-direction: row;
+  overflow: auto;
+  flex-wrap: nowrap;
+  > .user {
+    text-align: center;
+    @include border(red);
+    white-space: nowrap;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
 }
 //滚动条样式
-::-webkit-scrollbar{
-	display: none;
+::-webkit-scrollbar {
+  display: none;
 }
