@@ -1,5 +1,4 @@
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
 >>>>>>> bad278afdf632c337a3b36eab0e234fcccd38945
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
@@ -25,7 +24,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-<<<<<<< HEAD
 =======
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
@@ -33,6 +31,8 @@ yarn-error.log*
 /node_modules
 /.pnp
 .pnp.js
+/.idea
+/.env
 
 # testing
 /coverage
@@ -50,6 +50,4 @@ yarn-error.log*
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
->>>>>>> React组件实践
-=======
->>>>>>> bad278afdf632c337a3b36eab0e234fcccd38945
+
