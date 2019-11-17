@@ -14,7 +14,7 @@ class Question extends React.Component {
                 {username: "知乎"},
                 {username: "微博"},
                 {username: "Github"},
-                {username: "搜索指数"},
+                {username: "掘金文章"},
                 {username: "前沿技术"},
                 {username: "谷歌"},
                 {username: "王者荣耀"}
@@ -42,6 +42,7 @@ class Question extends React.Component {
             "知乎": '/hot',
             "微博": '/weibo',
             "Github": "/github",
+            "掘金文章":"/juejin"
         }
         this.getHotData(hash[tab])
         // this.getHotData();
