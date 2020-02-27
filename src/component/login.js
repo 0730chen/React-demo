@@ -18,7 +18,8 @@ class NormalLoginForm extends React.Component {
                 Axios.post("api/login", values).then(res => {
                     console.log(res);
                     if (res.data === "ok") {
-                        window.location = "/zhihu";
+                        console.log(this.props.history);
+                        window.location = '/weather'
                     }
                 });
             }

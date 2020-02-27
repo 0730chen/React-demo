@@ -1,7 +1,4 @@
 import React from "react";
-// import ReactDom from "react-dom";
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
-import style from "./About.module.css";
 import axios from "axios";
 import './style/About.scss'
 import TitleBar from "./router";
@@ -13,18 +10,14 @@ class About extends React.Component {
             Alldata: []
         }
     }
-
     getAllContent() {
-        console.log("发起一个请求");
         axios.get("api/ccc").then(res => {
             let data = res.data;
-            console.log(data);
             let hash = {};
             let result = data.data.reduce((item, next) => {
                 if (hash[next.author]) {
                 } else {
                     hash[next.author] = next.author;
-                    console.log(next);
                     item.push(next);
                 }
                 return item;
@@ -34,14 +27,9 @@ class About extends React.Component {
             })
         });
     }
-
-    //
-
     componentWillMount() {
         this.getAllContent();
-        console.log(this.state.Alldata);
     }
-
     render() {
         return (
             <div>
