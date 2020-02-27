@@ -1,8 +1,7 @@
 import React from "react";
 import "../style/Question.scss";
 import axios from "axios";
-
-//引入需要的包
+import TitleBar from "../router";
 
 //1.问题组件 分为title 问题  回答框
 class Question extends React.Component {
@@ -28,13 +27,11 @@ class Question extends React.Component {
         console.log(Api)
         let res = await axios.get(`api/${Api}`);
         let data = res.data;
-        console.log(data)
         this.setState({
             HotArray: data
         });
     }
 
-    //WARNING! To be deprecated in React v17. Use componentDidMount instead.
     handleClick(e) {
         let tab = e.target.innerText;
         console.log(tab);
@@ -42,27 +39,23 @@ class Question extends React.Component {
             "知乎": '/hot',
             "微博": '/weibo',
             "Github": "/github",
-            "掘金文章":"/juejin"
+            "掘金文章": "/juejin"
         }
         this.getHotData(hash[tab])
-        // this.getHotData();
     }
 
     componentWillMount() {
-        // this.getHotData();
+        this.getHotData('/hot');
     }
 
     render() {
         return (
             <div>
-                <div>显示最新的热点</div>
+                <TitleBar/>
                 <div className="question-main">
-                    <div
-                        className="bigVlist"
-                        onClick={e => {
-                            this.handleClick(e);
-                        }}
-                    >
+                    <div className="bigVlist" onClick={e => {
+                        this.handleClick(e);
+                    }}>
                         {this.state.bigV.map((item, i) => {
                             return (
                                 <div className="user" key={i}>
@@ -71,7 +64,7 @@ class Question extends React.Component {
                             );
                         })}
                     </div>
-                    <ul>
+                    <ul className="Hot-wrapper">
                         {this.state.HotArray.map((item, i) => {
                             return (
                                 <div key={i} className="Hot-item">

@@ -42,16 +42,6 @@ class Weather extends React.Component {
       });
   }
   getInputValue(city) {
-    //如果存在则获取citycode
-
-    // axios
-    //   .get(
-    //     `https://restapi.amap.com/v3/weather/weatherInfo?city=${city}&key=05394649327242f4976259b38eefdcef`
-    //   )
-    //   .then(res => {
-    //     console.log(res);
-    //   });
-    // axios.post(`api/weather`,{value:'hangzhou'}).then((res)=>{console.log(res)})
     let cityName = this.state.value;
     axios.post("api/weather", `${cityName}`).then(res => {
       let id = res.data;
