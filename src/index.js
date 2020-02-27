@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import Root from "./router";
+import LoginForm from "./component/login";
 
 class App extends React.Component {
     constructor(props) {
@@ -10,7 +11,10 @@ class App extends React.Component {
 
     render() {
         return (
-            <Root/>
+            <div>
+                <LoginForm/>
+                <Root/>
+            </div>
         );
     }
 }
