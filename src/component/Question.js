@@ -2,6 +2,7 @@ import React from "react";
 import "../style/Question.scss";
 import axios from "axios";
 import TitleBar from "../router";
+
 class Question extends React.Component {
     constructor(props) {
         super(props);
@@ -42,7 +43,7 @@ class Question extends React.Component {
     }
 
     componentWillMount() {
-        this.getHotData('/hot');
+        this.getHotData('/hot')
     }
 
     render() {

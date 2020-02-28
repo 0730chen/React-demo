@@ -1,7 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import { Button } from "antd";
-import { Icon } from "antd";
 import "../style/Search.scss";
 
 class Search extends React.Component {
@@ -18,10 +16,6 @@ class Search extends React.Component {
     this.setState({
       value: newValue
     });
-  }
-  sendSearch() {
-    console.log(this.state);
-    console.log(this.state.value);
   }
   render() {
     return (

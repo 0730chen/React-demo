@@ -1,12 +1,10 @@
 import React from "react";
 import {
-    HashRouter as Router,
-    Switch,
-    Route,
-    Link,
+    NavLink,
 } from "react-router-dom";
 import Search from './Search'
 import style from '../style/Route.module.css'
+import '../style/Nav.scss'
 
 class TitleBar extends React.Component {
     constructor(props) {
@@ -19,9 +17,12 @@ class TitleBar extends React.Component {
             <div>
                 <Search/>
                 <ul className={style.title}>
-                    <li className={style.link}><Link to="/question" activeclassname="selected">热点榜单</Link></li>
-                    <li className={style.link}><Link to="/about" activeclassname="selected">知乎问答</Link></li>
-                    <li className={style.link}><Link to="/weather" activeclassname="selected">天气查询</Link></li>
+                    <li className={style.link}><NavLink to="/question" exact activeClassName="selected">热点榜单</NavLink>
+                    </li>
+                    <li className={style.link}><NavLink to="/about" exact activeClassName="selected">知乎问答</NavLink>
+                    </li>
+                    <li className={style.link}><NavLink to="/weather" exact activeClassName="selected">天气查询</NavLink>
+                    </li>
                 </ul>
             </div>
         )
