@@ -19,7 +19,7 @@ class NormalLoginForm extends React.Component {
                     console.log(res);
                     if (res.data === "ok") {
                         console.log(this.props.history);
-                        window.location = '/weather'
+                        this.props.history.push('/question')
                     }
                 });
             }

@@ -6,6 +6,8 @@ import LoginForm from "./component/login";
 import style from "./style/Route.module.css";
 import {HashRouter as Router, Link, Route} from "react-router-dom";
 import Weather from "./component/Weather";
+import Question from "./component/Question";
+import About from "./about";
 
 class App extends React.Component {
     constructor(props) {
@@ -16,12 +18,11 @@ class App extends React.Component {
         return (
             <div>
                 <Router>
-                    <ul className={style.title}>
-                        <li className={style.link}><Link to="/"/></li>
-                        <li className={style.link}><Link to="/main"/></li>
-                    </ul>
                     <Route exact path="/" component={LoginForm}/>
                     <Route exact path="/main/" component={Root}/>
+                    <Route exact path="/question/" component={Question}/>
+                    <Route exact path="/weather/" component={Weather}/>
+                    <Route exact path="/about/" component={About}/>
                 </Router>
             </div>
         );

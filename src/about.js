@@ -10,9 +10,11 @@ class About extends React.Component {
             Alldata: []
         }
     }
+
     getAllContent() {
         axios.get("api/ccc").then(res => {
             let data = res.data;
+            console.log(data);
             let hash = {};
             let result = data.data.reduce((item, next) => {
                 if (hash[next.author]) {
@@ -27,9 +29,11 @@ class About extends React.Component {
             })
         });
     }
+
     componentWillMount() {
         this.getAllContent();
     }
+
     render() {
         return (
             <div>
@@ -39,9 +43,11 @@ class About extends React.Component {
                         return (
                             <div key={i} className="Question">
                                 <div className="author">{e.author}</div>
-                                <div>{e.title}</div>
-                                <div className="article" dangerouslySetInnerHTML={{__html: e.wrapper}}>
-                                </div>
+                                <a href={e.target_url}>
+                                    <h3>{e.title}</h3>
+                                </a>
+                                {/*<div className="article" dangerouslySetInnerHTML={{__html: e.wrapper}}>*/}
+                                <p>{e.summary}</p>
                             </div>
                         )
                     })}

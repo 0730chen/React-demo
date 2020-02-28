@@ -2,8 +2,6 @@ import React from "react";
 import "../style/Question.scss";
 import axios from "axios";
 import TitleBar from "../router";
-
-//1.问题组件 分为title 问题  回答框
 class Question extends React.Component {
     constructor(props) {
         super(props);
@@ -34,7 +32,6 @@ class Question extends React.Component {
 
     handleClick(e) {
         let tab = e.target.innerText;
-        console.log(tab);
         let hash = {
             "知乎": '/hot',
             "微博": '/weibo',
