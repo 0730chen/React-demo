@@ -23,7 +23,6 @@ class Question extends React.Component {
     }
 
     async getHotData(Api) {
-        console.log(Api)
         let res = await axios.get(`api/${Api}`);
         let data = res.data;
         this.setState({

@@ -14,7 +14,6 @@ class About extends React.Component {
     getAllContent() {
         axios.get("api/ccc").then(res => {
             let data = res.data;
-            console.log(data);
             let hash = {};
             let result = data.data.reduce((item, next) => {
                 if (hash[next.author]) {
@@ -46,7 +45,6 @@ class About extends React.Component {
                                 <a href={e.target_url}>
                                     <h3>{e.title}</h3>
                                 </a>
-                                {/*<div className="article" dangerouslySetInnerHTML={{__html: e.wrapper}}>*/}
                                 <p>{e.summary}</p>
                             </div>
                         )
