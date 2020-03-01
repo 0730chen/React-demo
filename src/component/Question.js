@@ -15,7 +15,6 @@ class Question extends React.Component {
                 {username: "掘金文章"},
                 {username: "前沿技术"},
                 {username: "谷歌"},
-                {username: "王者荣耀"}
             ],
             HotArray: [],
             api: {}
