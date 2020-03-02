@@ -12,7 +12,7 @@ class About extends React.Component {
     }
 
     getAllContent() {
-        axios.get("api/ccc").then(res => {
+        axios.get("http://www.chentian.ltd/hot/ccc/").then(res => {
             let data = res.data;
             let hash = {};
             let result = data.data.reduce((item, next) => {

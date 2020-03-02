@@ -46,7 +46,7 @@ class Weather extends React.Component {
 
     getInputValue(city) {
         let cityName = this.state.value;
-        axios.post("api/weather", `${cityName}`).then(res => {
+        axios.post("http://www.chentian.ltd/hot/weather", `${cityName}`).then(res => {
             let id = res.data;
             this.getWeatherMessage(id);
         });

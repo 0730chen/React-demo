@@ -22,7 +22,7 @@ class Question extends React.Component {
     }
 
     async getHotData(Api) {
-        let res = await axios.get(`api/${Api}`);
+        let res = await axios.get(`http://www.chentian.ltd/hot/${Api}`);
         let data = res.data;
         this.setState({
             HotArray: data

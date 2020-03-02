@@ -15,10 +15,8 @@ class NormalLoginForm extends React.Component {
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 //values就是一个对象
-                Axios.post("api/login", values).then(res => {
-                    console.log(res);
+                Axios.post("http://www.chentian.ltd/hot/login/", values).then(res => {
                     if (res.data === "ok") {
-                        console.log(this.props.history);
                         this.props.history.push('/question')
                     }
                 });
